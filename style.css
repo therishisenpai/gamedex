@@ -325,6 +325,16 @@ dialog::backdrop { background: rgba(5,5,10,.78); backdrop-filter: blur(9px); }
 .field.full { grid-column: 1 / -1; }
 .dialog-actions { display: flex; align-items: stretch; gap: 9px; margin-top: 16px; min-width: 0; }
 .dialog-actions button { flex: 1 1 0; min-width: 0; max-width: 100%; box-sizing: border-box; white-space: normal; }
+/* The remove button also has .small.secondary, whose card-icon styling fixes it at 35px.
+   Override that rule inside the dialog so both actions receive usable, balanced widths. */
+.dialog-actions .small.secondary {
+  display: inline-flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 10px;
+  font-size: 11px;
+}
 .dialog-actions .primary { gap: 6px; padding: 11px 10px; }
 
 @media (min-width: 1500px) { .grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
